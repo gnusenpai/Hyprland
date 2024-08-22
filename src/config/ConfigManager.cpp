@@ -446,6 +446,7 @@ CConfigManager::CConfigManager() {
     m_pConfig->addConfigValue("decoration:dim_special", {0.2f});
     m_pConfig->addConfigValue("decoration:dim_around", {0.4f});
     m_pConfig->addConfigValue("decoration:screen_shader", {STRVAL_EMPTY});
+    m_pConfig->addConfigValue("decoration:lut", {STRVAL_EMPTY});
 
     m_pConfig->addConfigValue("dwindle:pseudotile", Hyprlang::INT{0});
     m_pConfig->addConfigValue("dwindle:force_split", Hyprlang::INT{0});

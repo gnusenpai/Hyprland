@@ -1033,7 +1033,7 @@ std::string dispatchKeyword(eHyprCtlOutputFormat format, std::string in) {
     if (COMMAND.contains("general:layout"))
         g_pLayoutManager->switchToLayout(*PLAYOUT); // update layout
 
-    if (COMMAND.contains("decoration:screen_shader") || COMMAND == "source")
+    if (COMMAND.contains("decoration:screen_shader") || COMMAND.contains("decoration:lut") || COMMAND == "source")
         g_pHyprOpenGL->m_bReloadScreenShader = true;
 
     if (COMMAND.contains("blur") || COMMAND == "source") {

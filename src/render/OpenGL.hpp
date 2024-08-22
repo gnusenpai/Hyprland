@@ -292,7 +292,7 @@ class CHyprOpenGLImpl {
     SP<CTexture>            renderText(const std::string& text, CColor col, int pt, bool italic = false);
     void                    initAssets();
     void                    initMissingAssetTexture();
-    void                    createLUTTexture();
+    void                    createLUTTexture(const std::string& path);
 
     //
     std::optional<std::vector<uint64_t>> getModsForFormat(EGLint format);

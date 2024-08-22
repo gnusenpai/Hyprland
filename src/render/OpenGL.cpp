@@ -853,6 +853,8 @@ void CHyprOpenGLImpl::begin(PHLMONITOR pMonitor, const CRegion& damage_, CFrameb
     if (m_bReloadScreenShader) {
         m_bReloadScreenShader = false;
         static auto PSHADER   = CConfigValue<std::string>("decoration:screen_shader");
+        static auto PLUT      = CConfigValue<std::string>("decoration:lut");
+        createLUTTexture(*PLUT);
         applyScreenShader(*PSHADER);
     }
 
@@ -1441,10 +1443,6 @@ void CHyprOpenGLImpl::renderTextureInternalWithDamage(SP<CTexture> tex, CBox* pB
     } else {
         glTexParameteri(tex->m_iTarget, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
         glTexParameteri(tex->m_iTarget, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-    }
-
-    if (!m_pLUTTexture) {
-        createLUTTexture();
     }
 
     glUseProgram(shader->program);
@@ -2836,8 +2834,9 @@ void CHyprOpenGLImpl::initAssets() {
     }
 }
 
-void CHyprOpenGLImpl::createLUTTexture() {
-    const std::string texPath = absolutePath("lut.png", g_pConfigManager->getMainConfigPath());
+void CHyprOpenGLImpl::createLUTTexture(const std::string& path) {
+    const std::string texPath = absolutePath(path, g_pConfigManager->getMainConfigPath());
+
     Debug::log(LOG, "Creating LUT from {}", texPath);
 
     const auto CAIROSURFACE = cairo_image_surface_create_from_png(texPath.c_str());

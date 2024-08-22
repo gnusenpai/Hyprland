@@ -241,6 +241,12 @@ inline static const std::vector<SConfigOptionDescription> CONFIG_OPTIONS = {
         .type        = CONFIG_OPTION_STRING_LONG,
         .data        = SConfigOptionDescription::SStringData{""}, //##TODO UNSET?
     },
+    SConfigOptionDescription{
+        .value       = "decoration:lut",
+        .description = "a path to a custom texture to be supplied to the screen_shader.",
+        .type        = CONFIG_OPTION_STRING_LONG,
+        .data        = SConfigOptionDescription::SStringData{""}, //##TODO UNSET?
+    },
 
     /*
      * blur:
