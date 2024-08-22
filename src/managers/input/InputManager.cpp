@@ -87,7 +87,7 @@ void CInputManager::onMouseMoved(IPointer::SMotionEvent e) {
 
     const auto  DELTA = *PNOACCEL == 1 ? e.unaccel : e.delta;
 
-    PROTO::relativePointer->sendRelativeMotion((uint64_t)e.timeMs * 1000, DELTA, e.unaccel);
+    PROTO::relativePointer->sendRelativeMotion((uint64_t)e.timeMs * 1000, DELTA, DELTA);
 
     g_pPointerManager->move(DELTA);
 
