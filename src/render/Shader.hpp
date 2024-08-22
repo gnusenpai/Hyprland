@@ -47,6 +47,9 @@ class CShader {
     GLint   distort     = -1;
     GLint   wl_output   = -1;
 
+    GLint   lut     = -1;
+    GLint   lutSize = -1;
+
     // Blur prepare
     GLint contrast = -1;
 
