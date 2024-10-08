@@ -3,7 +3,7 @@
  * adapted from https://lettier.github.io/3d-game-shaders-for-beginners/lookup-table.html
  *
  * To use:
- * 1. Find or generate a strip-style 3D LUT
+ * 1. Find or generate a strip-style 3D LUT, if using a color correction LUT you should add the vcgt tag
  *    (https://github.com/gnusenpai/lut-generator was used to test)
  * 2. Copy it to `~/.config/hypr/lut.png` and load it with the command:
  *    `hyprctl keyword decoration:lut "lut.png"`
